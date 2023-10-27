@@ -6,6 +6,16 @@ import random as r
 colors = colorgram.extract('spot_painting.jpg', 100)
 rgb_values = []
 tim = t.Turtle()
+tim.hideturtle()
+tim.speed("fastest")
+tim.penup()
+
+# Starting position
+# Somewhere between 270 and 180
+tim.setheading(225)
+tim.forward(300)
+# Get it to face right again
+tim.setheading(0)
 
 # Return a list with each colour being a rgb colour tuple from the image
 for color in colors:
@@ -18,33 +28,17 @@ for color in colors:
 
 t.colormode(255)
 
+# 100 dots
+for dot_count in range(1, 101):
+    tim.dot(20, r.choice(rgb_values))
+    tim.fd(50)
 
-def put_dot():
-    """Function to put a dot the size of 20 with a random color"""
-    tim.pendown()
-    tim.pencolor(r.choice(rgb_values))
-    tim.dot(20)
-    tim.penup()
-
-
-# 10 by 10 rows of spots
-for row in range(10):
-    for dot in range(10):
-        # make a dot with a random color
-        put_dot()
-        # And 50 spaces apart
+    if dot_count % 10 == 0:
+        tim.setheading(90)
         tim.fd(50)
-    # Alternate between left and right when going up
-    if row % 2 == 0:
-        put_dot()
-        tim.left(90)
-        tim.fd(50)
-        tim.left(90)
-    else:
-        put_dot()
-        tim.right(90)
-        tim.fd(50)
-        tim.right(90)
+        tim.setheading(180)
+        tim.fd(500)
+        tim.setheading(0)
 
 
 screen = t.Screen()
