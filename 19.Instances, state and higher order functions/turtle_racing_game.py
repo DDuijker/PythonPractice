@@ -55,7 +55,7 @@ draw_start_line()
 # For every color in color list, make a turtle and put it at the right y position
 for index in range(len(COLORS)):
     new_turtle = Turtle("turtle")
-    new_turtle.speed("fastest")
+    # new_turtle.speed("fastest")
     new_turtle.penup()
     new_turtle.color(COLORS[index])
     start_y_position += height_between_turtles
