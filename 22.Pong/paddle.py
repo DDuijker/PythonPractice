@@ -1,33 +1,25 @@
 from turtle import Turtle
 
-LEFT_POSITIONS = [(-350, 40), (-350, 20), (-350, 0), (-350, -20), (-350, -40)]
-RIGHT_POSITIONS = [(350, 40), (350, 20), (350, 0), (350, -20), (350, -40)]
-UP = 90
-DOWN = 270
-
-
 class Paddle(Turtle):
 
-    def __init__(self):
+    def __init__(self, x_position):
         super().__init__()
-        self.left_segments = []
-        self.right_segments = []
-        self.create_paddles()
+        self.create_paddle(x_position)
 
-    def create_paddles(self):
-        # Create the left paddle
-        for position in LEFT_POSITIONS:
-            self.add_segment(position, self.left_segments)
-        # Create the right paddle
-        for position in RIGHT_POSITIONS:
-            self.add_segment(position, self.right_segments)
+    def create_paddle(self, x_pos):
+        self.shape("square")
+        self.color("white")
+        self.penup()
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(x_pos, 0)
 
-    def add_segment(self, position, segment_list):
-        p_piece = Turtle("square")
-        p_piece.color("white")
-        p_piece.penup()
-        p_piece.goto(position)
-        segment_list.append(p_piece)
+    def up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
+
+    def down(self):
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
 
 
 
