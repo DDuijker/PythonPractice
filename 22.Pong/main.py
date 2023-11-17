@@ -35,7 +35,7 @@ while game_is_on:
     time.sleep(ball.moving_speed)
     screen.update()
 
-    # Detect collision with a wall
+    # Detect ball collision with a wall
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
         ball.speed_up()
@@ -52,5 +52,6 @@ while game_is_on:
         # Left
         ball.ball_reset()
         scoreboard.increase_score_right()
+    # Detect paddle collision with wall
 
 screen.exitonclick()
