@@ -1,5 +1,13 @@
 #TODO: Create a letter using starting_letter.txt 
 #for each name in invited_names.txt
+
+# open file
+
+# loop through
+
+while open('/Input/Names/invited_names.txt') as names:
+    for name in names:
+
 #Replace the [name] placeholder with the actual name.
 #Save the letters in the folder "ReadyToSend".
     
