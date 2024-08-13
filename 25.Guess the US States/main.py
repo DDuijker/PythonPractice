@@ -24,11 +24,7 @@ def write_state(name, x_pos, y_pos):
 
 
 def save_game():
-    states_to_learn = []
-    for state in all_states:
-        if state not in guessed_states:
-            states_to_learn.append(state)
-
+    states_to_learn = [state for state in all_states if state not in guessed_states]
     df = pandas.DataFrame(states_to_learn)
     df.to_csv("./states-to-learn.csv")
 
